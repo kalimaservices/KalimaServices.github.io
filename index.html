@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -70,6 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     padding: 20px 24px;
     max-width: var(--max);
     margin: 0 auto;
@@ -100,35 +101,29 @@
 
   .nav-links a:hover{ color: var(--ink); }
 
-  .nav-cta{
-    background: var(--ink);
-    color: var(--paper) !important;
-    padding: 10px 20px;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    font-weight: 500;
+  .nav .eyebrow{
+    margin-bottom: 0;
+    white-space: nowrap;
   }
-
-  .menu-toggle{ display: none; }
 
   /* -------- Hero -------- */
   .hero{
     padding: 96px 24px 80px;
     text-align: center;
   }
-  .google-form {
-  width: 100%;
-  max-width: 940px;
-  margin: 0 auto;
-}
 
-.google-form iframe {
-  width: 100%;
-  height: 300px;
-  border: 0;
-  display: block;
-}
+  .google-form{
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+  }
 
+  .google-form iframe{
+    width: 100%;
+    height: 300px;
+    border: 0;
+    display: block;
+  }
 
   .eyebrow{
     display: inline-block;
@@ -142,7 +137,8 @@
     border-radius: 2px;
     margin-bottom: 20px;
   }
-    .eyelash{
+
+  .eyelash{
     display: inline-block;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.90rem;
@@ -159,6 +155,13 @@
     font-size: clamp(1.7rem, 5vw, 2.8rem);
     max-width: 720px;
     margin: 0 auto 20px;
+  }
+
+  .hero img{
+    display: block;
+    margin: 0 auto 24px;
+    max-width: 100%;
+    height: auto;
   }
 
   .hero p{
@@ -240,9 +243,27 @@
     margin-bottom: 12px;
   }
 
-  .service-card p{
+  .service-card p,
+  .service-card li{
     color: var(--text-soft);
     font-size: 0.95rem;
+  }
+
+  .service-card p{ margin-bottom: 8px; }
+
+  .service-card ul{
+    padding-left: 20px;
+  }
+
+  .service-card li{
+    margin-bottom: 10px;
+  }
+
+  .service-card li:last-child{ margin-bottom: 0; }
+
+  .service-card li strong{
+    color: var(--text);
+    font-weight: 600;
   }
 
   /* -------- About -------- */
@@ -265,6 +286,14 @@
     font-size: clamp(1.8rem, 3.2vw, 2.2rem);
   }
 
+  .about .tagline{
+    font-family: 'Caveat Brush', cursive;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-top: 12px;
+    line-height: 1.2;
+  }
+
   .about-body p{
     color: var(--text-soft);
     margin-bottom: 18px;
@@ -281,11 +310,6 @@
     text-align: center;
   }
 
-  .contact .eyebrow{
-    border-color: var(--brass);
-    color: var(--brass);
-  }
-
   .contact h2{
     color: var(--paper);
     font-size: clamp(1.8rem, 3.5vw, 2.4rem);
@@ -298,17 +322,15 @@
     margin: 0 auto 32px;
   }
 
-  .phone{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.4rem;
-    letter-spacing: 0.02em;
+  .contact .cta-line{
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: var(--paper);
-    border-bottom: 1px solid var(--brass);
-    padding-bottom: 4px;
-    transition: opacity 0.2s ease;
+    margin: 0 auto 28px;
   }
 
-  .phone:hover{ opacity: 0.75; }
+  .contact .btn-row{ margin-bottom: 40px; }
 
   /* -------- Footer -------- */
   footer{
@@ -322,21 +344,45 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 16px;
     font-size: 0.85rem;
     color: var(--text-soft);
   }
 
+  .footer-row img{
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .footer-links a{
+    color: var(--ink);
+    border-bottom: 1px solid var(--brass);
+    padding-bottom: 1px;
+  }
+
+  .footer-links a:hover{ opacity: 0.75; }
+
   /* -------- Responsive -------- */
   @media (max-width: 760px){
     .nav-links{ display: none; }
+    .brand{ font-size: 1.6rem; }
     .service-grid{ grid-template-columns: 1fr; }
     .about-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .footer-row{ flex-direction: column; align-items: flex-start; }
+    .footer-links{ align-items: flex-start; text-align: left; }
   }
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
-    .btn, .phone{ transition: none; }
+    .btn{ transition: none; }
   }
 
   :focus-visible{
@@ -356,23 +402,19 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="eyebrow">Hablamos Español</div>
-
-
-    <!--img src="cteclogo.png" alt="ctec cert" width="110" height="0"-->
+    <a class="eyebrow" href="tel:9495226090">949-522-6090</a>
   </nav>
 </header>
 
 <section class="hero">
   <span class="eyebrow">Tax Preparation &amp; Bookkeeping</span>
   <h1>Your books, balanced. Your taxes, handled.</h1>
-  <img src="clock.png" alt="clock?" width="250" height="200">
+  <img src="image/clock.png" alt="Clock surrounded by icons for documents, charts, a dollar sign, and a magnifying glass" width="250" height="200">
 
-  <p>As the end of the year approaches, it is important to have all your accounting in placed to help maximize your deductions and to help make future tax-smart investment decisions. </p>
+  <p>It is important to have all your accounting in place to help maximize your deductions and to help make future tax-smart investment decisions. We give peace of mind, better financial health, and making the most of your hard-earned profits.</p>
   <div class="btn-row">
     <a class="btn btn-ghost" href="#services">See services</a>
     <a class="btn btn-primary" href="#contact">Contact us!</a>
-    
   </div>
 </section>
 
@@ -381,28 +423,35 @@
 <section class="services" id="services">
   <div class="section-head">
     <p class="eyebrow">Services we provide</p>
-    <h2>Three ways we keep you square with the IRS</h2>
-    <p></p>
-    <!--img src="bello.png" alt="yurr" width="120" height="120"!-->
-    
-    
-	
+    <h2>Three ways we keep you square</h2>
   </div>
   <div class="service-grid">
     <div class="service-card">
       <span class="service-num">1</span>
       <h3>Tax Preparation</h3>
-      <p>Personal and small-business returns, filed accurately and on time — with every deduction you're owed. Individual and Business Tax Preparation</p>
+      <ul>
+        <li><strong>Individual Returns:</strong> W-2 wages, compile 1099s income, self-employed earnings, rental properties income, tips, investment portfolio and more. Revision of prior tax returns.</li>
+        <li><strong>Business Tax Preparation:</strong> Small-business returns, business structure (LLC, S-Corp, Partnership and Sole Proprietorship). Asset depreciation schedules. Filed accurately and on time — with every deduction you're owed.</li>
+      </ul>
     </div>
     <div class="service-card">
       <span class="service-num">2</span>
-      <h3>Bookkeeping</h3>
-      <p>Monthly reconciliation and clean records, so your numbers are ready whenever you need them. CPA Consultation, Business Formation of Start Up Entities, </p>
+      <h3>Advisory &amp; Support</h3>
+      <p>Year-round guidance:</p>
+      <ul>
+        <li>Estimated State and Federal Payments</li>
+        <li>Entity structure and filing requirements</li>
+        <li>State legal forms assistance — IRS Notification letters</li>
+      </ul>
     </div>
     <div class="service-card">
       <span class="service-num">3</span>
-      <h3>Advisory &amp; Support</h3>
-      <p>Year-round guidance on estimated payments, entity structure, and staying ahead of deadlines.:  State Legal Forms Assistance</p>
+      <h3>Bookkeeping</h3>
+      <ul>
+        <li>Monthly reconciliation and clean records, so your numbers are ready whenever you need them</li>
+        <li>CPA Consultation referral, as well as QuickBooks desktop or online</li>
+        <li>Business Formation of Start Up Entities</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -412,41 +461,44 @@
     <div>
       <span class="eyebrow">Why Kalima</span>
       <h2>Straightforward, local, and thorough.</h2>
+      <p class="tagline">In-Person or Virtual</p>
     </div>
     <div class="about-body">
-      <p>We work with individuals and small businesses who want a tax preparer that actually picks up the phone. No jargon, no surprises at filing time — just a clear plan for what you owe and why.</p>
-      <p>We give a peace of mind, better financial health, and making the most of your hard-earned profits.</p>
+      <p>We work with individuals and business owners who want a tax preparer that actually picks up the phone. No jargon, no surprises at filing time — just a clear plan and great results.</p>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <span class="eyelash">Keep in touch</span>
   <h2>Ready for your taxes to be simple?</h2>
-  <p>Reach out and we'll walk you through what to bring for your first appointment.</p>
-    <div class="btn-row">
+  <p>Reach out, we will manage the complexity of taxes, and we'll walk you through every step of the way.</p>
+  <span class="eyelash">Hablamos Español</span>
+  <p class="cta-line">Make your appointment today!</p>
+  <div class="btn-row">
     <a class="btn btn-primary" href="tel:9495226090">Call us</a>
     <a class="btn btn-primary" href="mailto:Kalimaservicesdesk@gmail.com">Email us</a>
-
   </div>
-  <p> </p>
+
   <div class="google-form">
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLScBYeZlXtme5uaAGYxfX-_1u7kGmKrivc5SPlbogl30F74XjQ/viewform?embedded=true"
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0">
-    Loading…
-  </iframe>
-</div>
-  
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLScBYeZlXtme5uaAGYxfX-_1u7kGmKrivc5SPlbogl30F74XjQ/viewform?embedded=true"
+      title="Contact form"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0">
+      Loading…
+    </iframe>
+  </div>
 </section>
 
 <footer>
   <div class="footer-row">
-    <img src="cteclogo.png" alt="ctec cert" width="180" height="170">
-    <span>© 2026 Kalima Services. All rights reserved.</span>
-    <span>Tax Preparation · Bookkeeping · Advisory</span>
+    <img src="image/cte.png" alt="CTEC — California Tax Education Council Registered Tax Preparer" width="180" height="170">
+    <div class="footer-links">
+      <a href="https://apps.irs.gov/app/tax-withholding-estimator" target="_blank" rel="noopener">IRS Withholding Calculator</a>
+      <span>© 2026 Kalima Services. All rights reserved.</span>
+      <span>Tax Preparation · Bookkeeping · Advisory</span>
+    </div>
   </div>
 </footer>
 
